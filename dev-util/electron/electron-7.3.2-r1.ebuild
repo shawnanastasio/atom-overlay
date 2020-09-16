@@ -84,6 +84,7 @@ COMMON_DEPEND="
 	x11-libs/cairo:=
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3[X]
+	x11-libs/libnotify:=
 	x11-libs/libX11:=
 	x11-libs/libXcomposite:=
 	x11-libs/libXcursor:=
@@ -284,8 +285,14 @@ src_prepare() {
 		"${NODE_S}/src/node_version.h" || die
 
 	cd "${CHROMIUM_S}" || die
-	# Finally, apply Gentoo patches for Chromium.
+	# Apply Gentoo patches for Chromium.
 	eapply "${WORKDIR}/${PATCHES_P}/${PV}/chromium/"
+
+	# Apply ppc64le patches for Chromium.
+	eapply "${FILESDIR}/${PV}-chromium-ppc64le.patch"
+
+	# Apply Chromium fix for new bison.
+	eapply "${FILESDIR}/${PV}-chromium-bison-fix.diff"
 
 	mkdir -p third_party/node/linux/node-linux-x64/bin || die
 	ln -s "${EPREFIX}"/usr/bin/node \
@@ -673,6 +680,9 @@ src_configure() {
 	elif [[ $myarch = arm ]] ; then
 		myconf_gn+=" target_cpu=\"arm\""
 		target_arch=$(usex cpu_flags_arm_neon arm-neon arm)
+	elif [[ $myarch = ppc64 ]] ; then
+		myconf_gn+=" target_cpu=\"ppc64\""
+		target_arch=ppc64
 	else
 		die "Failed to determine target arch, got '$myarch'."
 	fi

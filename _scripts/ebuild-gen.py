@@ -271,7 +271,7 @@ def generate_ebuild(target, target_version, deps, template_fn):
 
     return template.substitute({
         'SLOT': slot,
-        'KEYWORDS': '~amd64',
+        'KEYWORDS': '~amd64 ~ppc64',
         'ELECTRON_V': electron_version,
         'ELECTRON_S': electron_slot,
         'SRC_URI': textwrap.indent('\n'.join(urls), '\t'),

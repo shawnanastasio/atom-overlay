@@ -2,14 +2,14 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name><![CDATA[atom-overlay]]></name>
-    <description lang="en"><![CDATA[Atom Overlay]]></description>
-    <homepage>https://github.com/elprans/atom-overlay</homepage>
+    <name><![CDATA[atom-overlay-ppc64le]]></name>
+    <description lang="en"><![CDATA[Atom Overlay (ppc64le)]]></description>
+    <homepage>https://github.com/shawnanastasio/atom-overlay</homepage>
     <owner type="person">
-      <email>elvis@magic.io</email>
-      <name><![CDATA[Elvis Pranskevichus]]></name>
+      <email>shawn@anastas.io</email>
+      <name><![CDATA[Shawn Anastasio]]></name>
     </owner>
-    <source type="git">git://github.com/elprans/atom-overlay.git</source>
-    <feed>https://github.com/elprans/atom-overlay/commits/master.atom</feed>
+    <source type="git">git://github.com/shawnanastasio/atom-overlay.git</source>
+    <feed>https://github.com/shawnanastasio/atom-overlay/commits/master.atom</feed>
   </repo>
 </repositories>

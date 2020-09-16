@@ -22,8 +22,8 @@ else
 	UPSTREAM_CHANNEL="stable"
 fi
 
-ELECTRON_V=9.3.0
-ELECTRON_SLOT=9.3
+ELECTRON_V=7.3.2
+ELECTRON_SLOT=7.3
 
 ASAR_V=0.14.3
 # All binary packages depend on this
@@ -67,7 +67,7 @@ BINMODS=(
 RESTRICT="mirror bindist"
 LICENSE="MS-vscode"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
